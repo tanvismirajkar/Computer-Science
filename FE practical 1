@@ -1,0 +1,52 @@
+1]Import required libraries.
+import pandas as pd
+import numpy as np
+from sklearn.impute import KNNImputer
+
+2]Create a dataset containing missing values.
+data={
+'Age'=[25,30,np.nan,35,40,np.nan],
+'Salary'=[50000,54000,58000,np.nan,62000,60000],
+'Department'=['HR','IT',np.nan,'Finance','IT','HR']
+}
+print(data)
+
+3]Detect missing values using isnull().
+missing_values=df.isnull()
+
+4]Count missing values using sum().
+print('\nCount of missing values')
+print(df.isnull().sum())
+
+5]Apply Mean, Median and Mode imputation.
+df['Age']=df['Age'].fillna(df['Age'].mean())
+print(df)
+df['Salary']=df['Salary'].fillna(df['Salary'].meadian())
+print(df)
+df['Department']=df['Department'].fillna(df['Department'].mode())
+print(df)
+
+6]Apply forward fill and backward fill.
+Forward fill:Replacing missing values using previous valid values.
+df_ffill=df.fillna(method='ffill')
+print(df_ffill)
+Backward fill:Replacing missing values using next valid values.
+df_bfill=df.fillna(method='bfill')
+
+7]Perform KNNImputation.
+KNNImputation:Using nearest neighbouring data to estimate missing values.
+data Knn={
+'Age':[25,30,np.nan,35,40],
+'Salary':[50000,54000,58000,np.nan,62000,60000]
+}
+
+8]Display the clean dataset.
+print("\nClean Dataset(KNN+Mode):")
+print(Knn_df)
+
+9]Compare original and updated datasets.
+print("\nOriginal Datasets:")
+print(df)
+print("\nUpdated clean dataset:")
+print(Knn_df)
+print(df_bfill)
