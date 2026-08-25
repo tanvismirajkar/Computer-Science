@@ -1,0 +1,11 @@
+1]Hospital patient data.
+import pandas as pd
+from sklearn.preprocessing import StandardScaler
+data=pd.DataFrame({
+"Age":[10,25,60,80],
+"Blood pressure":[80,120,180,200]
+})
+Scaler=StandardScaler()
+scaled_data=scaler fit_transform(data)
+scaled_df=pd.DataFrame(scaled_data,column=data.columns)
+print("
